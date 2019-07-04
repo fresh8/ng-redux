@@ -8,7 +8,9 @@
     "build:lib": "rm -rf lib && `npm bin`/babel src --out-dir lib",
     "build:min": "./node_modules/.bin/webpack --optimize-minimize lib/index.js dist/ng-redux.min.js",
     "build:max": "./node_modules/.bin/webpack lib/index.js dist/ng-redux.js",
-    "test": "mocha --compilers js:babel-register --recursive"
+    "test": "mocha --compilers js:babel-register --recursive",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -45,9 +47,11 @@
     "lodash.isobject": "^3.0.2",
     "lodash.isplainobject": "^3.2.0",
     "lodash.map": "^4.4.0",
-    "redux": "^3.0.0"
+    "redux": "^3.0.0",
+    "snyk": "^1.189.0"
   },
   "czConfig": {
     "path": "node_modules/cz-conventional-changelog"
-  }
+  },
+  "snyk": true
 }
